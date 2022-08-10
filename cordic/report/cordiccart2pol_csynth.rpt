@@ -1,0 +1,158 @@
+
+
+================================================================
+== Vitis HLS Report for 'cordiccart2pol'
+================================================================
+* Date:           Sun Aug  7 14:35:46 2022
+
+* Version:        2021.2 (Build 3367213 on Tue Oct 19 02:47:39 MDT 2021)
+* Project:        my_test
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: zynq
+* Target device:  xc7z020-clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+-----------+------------+
+    |  Clock |  Target  | Estimated | Uncertainty|
+    +--------+----------+-----------+------------+
+    |ap_clk  |  10.00 ns|  10.518 ns|     2.70 ns|
+    +--------+----------+-----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |       25|      100|  0.263 us|  1.052 us|   26|  101|       no|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        +--------------------------------+----------------------+---------+---------+-----------+----------+-----+-----+---------+
+        |                                |                      |  Latency (cycles) |  Latency (absolute)  |  Interval | Pipeline|
+        |            Instance            |        Module        |   min   |   max   |    min    |    max   | min | max |   Type  |
+        +--------------------------------+----------------------+---------+---------+-----------+----------+-----+-----+---------+
+        |grp_atan2_cordic_float_s_fu_70  |atan2_cordic_float_s  |        1|       76|  10.518 ns|  0.799 us|    1|   76|       no|
+        +--------------------------------+----------------------+---------+---------+-----------+----------+-----+-----+---------+
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-----+--------+-------+-----+
+|       Name      | BRAM_18K| DSP |   FF   |  LUT  | URAM|
++-----------------+---------+-----+--------+-------+-----+
+|DSP              |        -|    -|       -|      -|    -|
+|Expression       |        -|    -|       -|      -|    -|
+|FIFO             |        -|    -|       -|      -|    -|
+|Instance         |        4|    8|    1646|   4370|    -|
+|Memory           |        -|    -|       -|      -|    -|
+|Multiplexer      |        -|    -|       -|    168|    -|
+|Register         |        -|    -|     218|      -|    -|
++-----------------+---------+-----+--------+-------+-----+
+|Total            |        4|    8|    1864|   4538|    0|
++-----------------+---------+-----+--------+-------+-----+
+|Available        |      280|  220|  106400|  53200|    0|
++-----------------+---------+-----+--------+-------+-----+
+|Utilization (%)  |        1|    3|       1|      8|    0|
++-----------------+---------+-----+--------+-------+-----+
+
++ Detail: 
+    * Instance: 
+    +----------------------------------------+------------------------------------+---------+----+-----+------+-----+
+    |                Instance                |               Module               | BRAM_18K| DSP|  FF |  LUT | URAM|
+    +----------------------------------------+------------------------------------+---------+----+-----+------+-----+
+    |grp_atan2_cordic_float_s_fu_70          |atan2_cordic_float_s                |        4|   0|  960|  3040|    0|
+    |control_s_axi_U                         |control_s_axi                       |        0|   0|  195|   298|    0|
+    |faddfsub_32ns_32ns_32_5_full_dsp_1_U14  |faddfsub_32ns_32ns_32_5_full_dsp_1  |        0|   2|  205|   390|    0|
+    |fmul_32ns_32ns_32_4_max_dsp_1_U15       |fmul_32ns_32ns_32_4_max_dsp_1       |        0|   3|  143|   321|    0|
+    |fmul_32ns_32ns_32_4_max_dsp_1_U16       |fmul_32ns_32ns_32_4_max_dsp_1       |        0|   3|  143|   321|    0|
+    |fsqrt_32ns_32ns_32_16_no_dsp_1_U17      |fsqrt_32ns_32ns_32_16_no_dsp_1      |        0|   0|    0|     0|    0|
+    +----------------------------------------+------------------------------------+---------+----+-----+------+-----+
+    |Total                                   |                                    |        4|   8| 1646|  4370|    0|
+    +----------------------------------------+------------------------------------+---------+----+-----+------+-----+
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    N/A
+
+    * Multiplexer: 
+    +------------------+-----+-----------+-----+-----------+
+    |       Name       | LUT | Input Size| Bits| Total Bits|
+    +------------------+-----+-----------+-----+-----------+
+    |ap_NS_fsm         |  117|         26|    1|         26|
+    |grp_fu_80_ce      |    9|          2|    1|          2|
+    |grp_fu_80_opcode  |   14|          3|    2|          6|
+    |grp_fu_80_p0      |   14|          3|   32|         96|
+    |grp_fu_80_p1      |   14|          3|   32|         96|
+    +------------------+-----+-----------+-----+-----------+
+    |Total             |  168|         37|   68|        226|
+    +------------------+-----+-----------+-----+-----------+
+
+    * Register: 
+    +---------------------------------------------+----+----+-----+-----------+
+    |                     Name                    | FF | LUT| Bits| Const Bits|
+    +---------------------------------------------+----+----+-----+-----------+
+    |ap_CS_fsm                                    |  25|   0|   25|          0|
+    |grp_atan2_cordic_float_s_fu_70_ap_start_reg  |   1|   0|    1|          0|
+    |mul1_reg_134                                 |  32|   0|   32|          0|
+    |mul_reg_129                                  |  32|   0|   32|          0|
+    |p_x_assign_reg_139                           |  32|   0|   32|          0|
+    |tmp_5_reg_124                                |  32|   0|   32|          0|
+    |x_read_reg_117                               |  32|   0|   32|          0|
+    |y_read_reg_110                               |  32|   0|   32|          0|
+    +---------------------------------------------+----+----+-----+-----------+
+    |Total                                        | 218|   0|  218|          0|
+    +---------------------------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++-----------------------+-----+-----+------------+----------------+--------------+
+|       RTL Ports       | Dir | Bits|  Protocol  |  Source Object |    C Type    |
++-----------------------+-----+-----+------------+----------------+--------------+
+|s_axi_control_AWVALID  |   in|    1|       s_axi|         control|        scalar|
+|s_axi_control_AWREADY  |  out|    1|       s_axi|         control|        scalar|
+|s_axi_control_AWADDR   |   in|    6|       s_axi|         control|        scalar|
+|s_axi_control_WVALID   |   in|    1|       s_axi|         control|        scalar|
+|s_axi_control_WREADY   |  out|    1|       s_axi|         control|        scalar|
+|s_axi_control_WDATA    |   in|   32|       s_axi|         control|        scalar|
+|s_axi_control_WSTRB    |   in|    4|       s_axi|         control|        scalar|
+|s_axi_control_ARVALID  |   in|    1|       s_axi|         control|        scalar|
+|s_axi_control_ARREADY  |  out|    1|       s_axi|         control|        scalar|
+|s_axi_control_ARADDR   |   in|    6|       s_axi|         control|        scalar|
+|s_axi_control_RVALID   |  out|    1|       s_axi|         control|        scalar|
+|s_axi_control_RREADY   |   in|    1|       s_axi|         control|        scalar|
+|s_axi_control_RDATA    |  out|   32|       s_axi|         control|        scalar|
+|s_axi_control_RRESP    |  out|    2|       s_axi|         control|        scalar|
+|s_axi_control_BVALID   |  out|    1|       s_axi|         control|        scalar|
+|s_axi_control_BREADY   |   in|    1|       s_axi|         control|        scalar|
+|s_axi_control_BRESP    |  out|    2|       s_axi|         control|        scalar|
+|ap_local_block         |  out|    1|  ap_ctrl_hs|  cordiccart2pol|  return value|
+|ap_clk                 |   in|    1|  ap_ctrl_hs|  cordiccart2pol|  return value|
+|ap_rst_n               |   in|    1|  ap_ctrl_hs|  cordiccart2pol|  return value|
+|interrupt              |  out|    1|  ap_ctrl_hs|  cordiccart2pol|  return value|
++-----------------------+-----+-----+------------+----------------+--------------+
+
